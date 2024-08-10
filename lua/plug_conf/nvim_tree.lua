@@ -1,6 +1,6 @@
 local winsize = require("utils").winsize
 local api = require("nvim-tree.api")
-local Mode = require("consts").modes
+local mode = require("consts").modes
 local bufferline_api = require("bufferline.api")
 
 local DEFAULT_WIDTH = 30
@@ -25,20 +25,20 @@ end
 local function on_attach(bufnr)
   local opts = { buffer = bufnr, noremap = true, silent = true, nowait = true }
 
-  vim.keymap.set(Mode.normal, "<leader>v", api.node.open.vertical, opts)
-  vim.keymap.set(Mode.normal, "<leader>h", api.node.open.horizontal, opts)
-  vim.keymap.set(Mode.normal, "r", api.tree.reload, opts)
-  vim.keymap.set(Mode.normal, "a", api.fs.create, opts)
-  vim.keymap.set(Mode.normal, "d", api.fs.remove, opts)
-  vim.keymap.set(Mode.normal, "m", api.fs.rename_sub, opts)
-  vim.keymap.set(Mode.normal, "y", api.fs.copy.relative_path, opts)
-  vim.keymap.set(Mode.normal, "Y", api.fs.copy.absolute_path, opts)
-  vim.keymap.set(Mode.normal, "C", api.tree.collapse_all, opts)
-  vim.keymap.set(Mode.normal, "K", api.node.show_info_popup, opts)
-  vim.keymap.set(Mode.normal, "o", api.node.open.edit, opts)
-  vim.keymap.set(Mode.normal, "<CR>", api.node.open.edit, opts)
-  vim.keymap.set(Mode.normal, ">", inc_width, opts)
-  vim.keymap.set(Mode.normal, "<", dec_width, opts)
+  vim.keymap.set(mode.normal, "c", api.fs.create, opts)
+  vim.keymap.set(mode.normal, "d", api.fs.remove, opts)
+  vim.keymap.set(mode.normal, "m", api.fs.rename_sub, opts)
+  vim.keymap.set(mode.normal, "y", api.fs.copy.relative_path, opts)
+  vim.keymap.set(mode.normal, "Y", api.fs.copy.absolute_path, opts)
+  vim.keymap.set(mode.normal, "r", api.tree.reload, opts)
+  --vim.keymap.sem(mode.normal, "C", api.tree.change_root_to_node, opts)
+  vim.keymap.set(mode.normal, "<leader>v", api.node.open.vertical, opts)
+  vim.keymap.set(mode.normal, "<leader>h", api.node.open.horizontal, opts)
+  vim.keymap.set(mode.normal, "K", api.node.show_info_popup, opts)
+  vim.keymap.set(mode.normal, "o", api.node.open.edit, opts)
+  vim.keymap.set(mode.normal, "<CR>", api.node.open.edit, opts)
+  vim.keymap.set(mode.normal, ">", inc_width, opts)
+  vim.keymap.set(mode.normal, "<", dec_width, opts)
 end
 
 require("nvim-tree").setup({
@@ -69,4 +69,4 @@ api.events.subscribe(api.events.Event.Resize, function(new_size)
   bufferline_api.set_offset(new_size, "File Tree")
 end)
 
-vim.keymap.set(Mode.normal, "<leader>e", ":NvimTreeToggle<CR>", { noremap = true })
+vim.keymap.set(mode.normal, "<leader>e", ":NvimTreeToggle<CR>", { noremap = true })
