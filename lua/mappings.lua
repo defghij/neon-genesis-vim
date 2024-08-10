@@ -25,9 +25,6 @@ vim.keymap.set(mode.normal, "-", ":lua update_buf_width(-2)<CR>", { noremap = tr
 vim.keymap.set(mode.normal, "+", ":lua update_buf_height(2)<CR>", { noremap = true })
 vim.keymap.set(mode.normal, "_", ":lua update_buf_height(-2)<CR>", { noremap = true })
 
--- Nvim Tree
-vim.keymap.set(mode.normal, '<leader>F', ":NvimTreeToggle<CR>", { noremap = true })
-
 -- Terminal buffer-scoped maps
 function _G.set_terminal_keymaps()
   local opts = { noremap = true }
