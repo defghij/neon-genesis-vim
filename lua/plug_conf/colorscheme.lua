@@ -4,8 +4,8 @@ require("tokyonight").setup {
   transparent = true,
   terminal_colors = true,
   styles = {
-    --sidebars = "dark",
-    --floats = "dark",
+    -- sidebars = "dark",
+    -- floats = "dark",
     sidebars = "transparent",
     floats = "transparent",
   },
@@ -22,7 +22,7 @@ require("tokyonight").setup {
 
 require('lualine').setup {
   options = {
-    theme = 'tokyonight'
+    theme = 'nightfly'
   }
 }
 vim.cmd("colorscheme tokyonight")
