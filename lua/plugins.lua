@@ -118,6 +118,8 @@ local plugins = {
   -- Colorscheme and Lualine
   {
     "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
     dependencies = {
       "nvim-lualine/lualine.nvim",
     },
@@ -126,12 +128,6 @@ local plugins = {
 
   -- Extends '%' behavior and matching text highlight
   { "andymass/vim-matchup" },
-
-  -- Git decorations
-  {
-    "lewis6991/gitsigns.nvim",
-    config = get_setup("gitsigns")
-  },
 
   -- Wrapper around `git` command
   { "tpope/vim-fugitive" },
