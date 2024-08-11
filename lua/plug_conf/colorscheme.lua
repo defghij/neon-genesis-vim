@@ -27,6 +27,3 @@ require('lualine').setup {
 }
 
 vim.cmd("colorscheme tokyonight")
-
-
--- Modify some highlight groups not currently defined in Tokyo
