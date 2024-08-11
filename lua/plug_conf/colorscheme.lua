@@ -1,16 +1,16 @@
 require("tokyonight").setup {
   style = "night",
-  light_style = "day",
   transparent = true,
   terminal_colors = true,
   styles = {
-    -- sidebars = "dark",
-    -- floats = "dark",
-    sidebars = "transparent",
-    floats = "transparent",
+    comments  = { italic = true },
+    keywords  = { italic = false },
+    functions = { italic = false },
+    variabes  = { italic = false },
+    sidebars  = "transparent",
+    floats    = "transparent",
   },
-  day_brightness = 0.3,
-  dim_inactive = false,
+  dim_inactive = true,
   lualine_bold = false,
 
   on_colors = function(colors) end,
@@ -25,4 +25,8 @@ require('lualine').setup {
     theme = 'nightfly'
   }
 }
+
 vim.cmd("colorscheme tokyonight")
+
+
+-- Modify some highlight groups not currently defined in Tokyo
