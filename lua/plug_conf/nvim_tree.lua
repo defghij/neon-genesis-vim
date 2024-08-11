@@ -73,3 +73,4 @@ api.events.subscribe(api.events.Event.Resize, function(new_size)
 end)
 
 vim.keymap.set(mode.normal, "<leader>e", ":NvimTreeToggle<CR>", { noremap = true })
+

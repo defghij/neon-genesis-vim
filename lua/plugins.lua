@@ -158,6 +158,16 @@ local plugins = {
     config = get_setup("text_case"),
   },
 
+  -- Folding Support
+  {
+    'kevinhwang91/promise-async'
+  },
+  {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    config = get_setup("nvim_ufo"),
+  },
+
   -- Knowledge Management 
   {
     "vimwiki/vimwiki", 
