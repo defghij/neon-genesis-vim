@@ -35,8 +35,11 @@ require("barbar").setup({
             right = ''
         }
     },
-    gitsigns = { 
-        enabled = true,
+    gitsigns = {
+        --enabled = true,
+        -- Disabled becasue Tokyonight doesnt support all the hightlight
+        -- groups
+        enabled = false, 
         added = {enabled = true, icon = '+'},
         changed = {enabled = true, icon = '~'},
         deleted = {enabled = true, icon = '-'},
@@ -52,8 +55,8 @@ require("barbar").setup({
   semantic_letters = true,
 })
 
-vim.keymap.set(Mode.normal, "<leader>n", ":BufferNext<CR>", { noremap = true })
-vim.keymap.set(Mode.normal, "<leader>N", ":BufferPrevious<CR>", { noremap = true })
-vim.keymap.set(Mode.normal, "<leader>q", ":BufferClose<CR>", { noremap = true })
+vim.keymap.set(Mode.normal, "gt", ":BufferNext<CR>", { noremap = true })
+vim.keymap.set(Mode.normal, "gT", ":BufferPrevious<CR>", { noremap = true })
+vim.keymap.set(Mode.normal, "gq", ":BufferClose<CR>", { noremap = true })
 vim.keymap.set(Mode.normal, "<C-s>", ":BufferMoveNext<CR>", { noremap = true })
 vim.keymap.set(Mode.normal, "<C-a>", ":BufferMovePrevious<CR>", { noremap = true })
