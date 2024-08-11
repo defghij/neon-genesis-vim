@@ -158,6 +158,7 @@ local plugins = {
     config = get_setup("text_case"),
   },
 
+  -- Knowledge Management 
   {
     "vimwiki/vimwiki", 
     init = function() 
@@ -169,6 +170,13 @@ local plugins = {
         },
     }
     end,
+  },
+
+  -- Splash Page for Startup
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    dependencies = { {'nvim-tree/nvim-web-devicons'}}
   }
 }
 
