@@ -1,5 +1,24 @@
 -- No current additional settings set for VimWiki
+local vimwiki = {}
 
+function vimwiki.init() 
+  vim.g.vimwiki_list = {
+      -- Academic Notes
+    {
+      path = '~/vimwiki.all/academic',
+      syntax = 'markdown',
+      ext = '.md',
+    },
+      -- Personal Notes
+    {
+      path = '~/vimwiki.all/personal',
+      syntax = 'markdown',
+      ext = '.md',
+    },
+}
+end
+
+return vimwiki
 -- VimWiki Default Mappings --
 -- 
 -- _[number] refers to the wiki number, set by the order in your vimrc. The default is 1._

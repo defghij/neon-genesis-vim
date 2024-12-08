@@ -27,6 +27,16 @@ local function get_setup(conf_name)
 end
 
 local plugins = {
+  -- Helper For KeyMaps
+  {
+    "folke/which-key.nvim",
+    lazy = true,
+--    config = get_setup("which-key"),
+    keys = { 
+      { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps (which-key)", },
+    },
+  },
+
   -- Language server installations and LSP client configs and relevant keymaps
   {
     "neovim/nvim-lspconfig",
@@ -162,6 +172,7 @@ local plugins = {
   {
     'kevinhwang91/promise-async'
   },
+
   {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
@@ -171,15 +182,15 @@ local plugins = {
   -- Knowledge Management 
   {
     "vimwiki/vimwiki", 
-    init = function() 
-      vim.g.vimwiki_list = {
-        {
-          path = '~/vimwiki',
-          syntax = 'markdown',
-          ext = '.md',
-        },
-    }
+    init = function()
+      require("plug_conf.vimwiki").init()
     end,
+  },
+
+  -- Prioritized To-Do lists
+  {
+    "atiladefreitas/dooing",
+    config = get_setup("dooing"),
   },
 
   -- Splash Page for Startup

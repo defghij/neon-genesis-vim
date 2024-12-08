@@ -4,14 +4,14 @@ local lspconfig = require("lspconfig")
 
 lspconfig["bashls"].setup({})
 lspconfig["clangd"].setup({})
-lspconfig["docker_compose_language_service"].setup({})
-lspconfig["dockerls"].setup({})
-lspconfig["eslint"].setup({})
-lspconfig["html"].setup({})
-lspconfig["lua_ls"].setup({})
-lspconfig["marksman"].setup({})
-lspconfig["pyright"].setup({})
-lspconfig["yamlls"].setup({})
+--lspconfig["docker_compose_language_service"].setup({})
+--lspconfig["dockerls"].setup({})
+--lspconfig["eslint"].setup({})
+--lspconfig["html"].setup({})
+--lspconfig["lua_ls"].setup({})
+--lspconfig["marksman"].setup({})
+--lspconfig["pyright"].setup({})
+--lspconfig["yamlls"].setup({})
 
 lspconfig["rust_analyzer"].setup({
   settings = {
@@ -56,10 +56,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local opts = { buffer = ev.buf }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
     --vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) SEE telescope.lua
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "gN", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "gn", vim.diagnostic.goto_next, opts)
   end,
 })

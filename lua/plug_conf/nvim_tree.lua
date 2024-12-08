@@ -2,6 +2,7 @@ local winsize = require("utils").winsize
 local api = require("nvim-tree.api")
 local mode = require("consts").modes
 local bufferline_api = require("bufferline.api")
+local wk = require("which-key")
 
 local DEFAULT_WIDTH = 30
 
@@ -32,12 +33,12 @@ local function on_attach(bufnr)
   vim.keymap.set(mode.normal, "Y", api.fs.copy.absolute_path, opts)
   vim.keymap.set(mode.normal, "r", api.tree.reload, opts)
   vim.keymap.set(mode.normal, "C", api.tree.change_root_to_node, opts)
-  vim.keymap.set(mode.normal, "I", api.tree.toggle_hidden_filter, opts)
-  vim.keymap.set(mode.normal, "H", api.tree.toggle_enable_filters, opts)
-  vim.keymap.set(mode.normal, "G", api.tree.toggle_gitignore_filter, opts)
+  vim.keymap.set(mode.normal, "h", api.tree.toggle_hidden_filter, opts)
+  vim.keymap.set(mode.normal, "f", api.tree.toggle_enable_filters, opts)
+  vim.keymap.set(mode.normal, "g", api.tree.toggle_gitignore_filter, opts)
   vim.keymap.set(mode.normal, "<leader>v", api.node.open.vertical, opts)
   vim.keymap.set(mode.normal, "<leader>h", api.node.open.horizontal, opts)
-  vim.keymap.set(mode.normal, "K", api.node.show_info_popup, opts)
+  vim.keymap.set(mode.normal, "i", api.node.show_info_popup, opts)
   vim.keymap.set(mode.normal, "o", api.node.open.edit, opts)
   vim.keymap.set(mode.normal, "<CR>", api.node.open.edit, opts)
   vim.keymap.set(mode.normal, ">", inc_width, opts)
@@ -53,7 +54,8 @@ require("nvim-tree").setup({
   sort_by = "name",
   filters = {
     custom = {
-      ".git"
+      ".git*",
+      ".bashrc*",
     }
   },
   renderer = {
@@ -72,5 +74,7 @@ api.events.subscribe(api.events.Event.Resize, function(new_size)
   bufferline_api.set_offset(new_size, "File Tree")
 end)
 
-vim.keymap.set(mode.normal, "<leader>e", ":NvimTreeToggle<CR>", { noremap = true })
-
+-- TODO Figure out how to condiitionally add the attach_on buffer commands
+wk.add({
+  { "<leader>e", ":NvimTreeToggle<CR>", mode="n", group = "Files", desc = "Open nvim-tree file manager" },
+})
