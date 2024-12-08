@@ -1,5 +1,5 @@
 require("which-key").setup({
---    event = "VeryLazy",
+    -- TODO This does not appear to be setting anything
     opts = {
        ---@class wk.Opts
       local defaults = {
@@ -187,7 +187,3 @@ require("which-key").setup({
 --      },
 --    },
 
-local wk = require("which-key")
-wk.add({
-  { "<leader>?", mode = "n", function() require("which-key").show({global = false}) end, desc = "Buffer Local Keymaps (which-key)" },
-})

@@ -1,4 +1,5 @@
 require("mason").setup()
+local wk = require("which-key")
 
 local lspconfig = require("lspconfig")
 
@@ -54,13 +55,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.api.nvim_buf_set_option(ev.buf, "formatexpr", "v:lua.vim.lsp.formatexpr()")
 
     local opts = { buffer = ev.buf }
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
-    --vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) SEE telescope.lua
-    vim.keymap.set("n", "gN", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "gn", vim.diagnostic.goto_next, opts)
+    wk.add({
+      {"?", vim.lsp.buf.hover,             desc = "token documentation (hover)"},
+      {"gd", vim.lsp.buf.declaration,      desc = "token declaration (buffer)"},
+      {"gD", vim.lsp.buf.definition,       desc = "token definition (buffer)"},
+      {"gI", vim.lsp.buf.implementation,   desc = "token implementation (buffer)"},
+      {"gC", vim.lsp.buf.code_action,      desc = "prompt for code actions (hover)"},
+      {"g>", vim.lsp.diagnostic.goto_next, desc = "move to next diagnostic (cursor)"},
+      {"g<", vim.lsp.diagnostic.goto_prev, desc = "move to next diagnostic (cursor)"},
+      {"gR", vim.lsp.buf.references,       desc = "open reference to token (buffer)"},
+    })
   end,
 })

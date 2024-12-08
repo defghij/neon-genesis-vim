@@ -35,6 +35,7 @@ local function on_attach(bufnr)
   vim.keymap.set(mode.normal, "C", api.tree.change_root_to_node, opts)
   vim.keymap.set(mode.normal, "h", api.tree.toggle_hidden_filter, opts)
   vim.keymap.set(mode.normal, "f", api.tree.toggle_enable_filters, opts)
+  vim.keymap.set(mode.normal, "f", api.tree.toggle_enable_filters, opts)
   vim.keymap.set(mode.normal, "g", api.tree.toggle_gitignore_filter, opts)
   vim.keymap.set(mode.normal, "<leader>v", api.node.open.vertical, opts)
   vim.keymap.set(mode.normal, "<leader>h", api.node.open.horizontal, opts)
@@ -55,7 +56,7 @@ require("nvim-tree").setup({
   filters = {
     custom = {
       ".git*",
-      ".bashrc*",
+      ".bash*",
     }
   },
   renderer = {
