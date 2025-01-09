@@ -119,5 +119,5 @@ require("dooing").setup({
 })
 
 wk.add({
-  { "<leader>td", ":Dooing<CR>", mode="n", group = "Productivity", desc = "Open To-Do List" },
+  { "<leader>td", ":Dooing<CR>", mode="n", desc = "Open to-do list (dooing)" },
 })
