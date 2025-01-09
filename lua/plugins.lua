@@ -30,11 +30,11 @@ local plugins = {
   -- Helper For KeyMaps
   {
     "folke/which-key.nvim",
-    lazy = true,
---    config = get_setup("which-key"),
-    keys = { 
-      { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps (which-key)", },
-    },
+    lazy = false,
+    config = get_setup("which-key"),
+    -- keys = { 
+    --   { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps (which-key)", },
+    -- },
   },
 
   -- Language server installations and LSP client configs and relevant keymaps
