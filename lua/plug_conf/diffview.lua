@@ -1,4 +1,5 @@
 local Mode = require("consts").modes
+local wk   = require("which-key")
 
 local opts = { noremap = true, silent = true, nowait = true }
 
@@ -12,4 +13,6 @@ local function toggle_diffview()
   end
 end
 
-vim.keymap.set(Mode.normal, "<leader>d", toggle_diffview, opts)
+wk.add({
+  {"<leader>d", toggle_diffview, mode="n", desc="Toggle diff-view (diffview)"},
+})

@@ -26,24 +26,27 @@ end
 local function on_attach(bufnr)
   local opts = { buffer = bufnr, noremap = true, silent = true, nowait = true }
 
-  vim.keymap.set(mode.normal, "c", api.fs.create, opts)
-  vim.keymap.set(mode.normal, "d", api.fs.remove, opts)
-  vim.keymap.set(mode.normal, "m", api.fs.rename_sub, opts)
-  vim.keymap.set(mode.normal, "y", api.fs.copy.relative_path, opts)
-  vim.keymap.set(mode.normal, "Y", api.fs.copy.absolute_path, opts)
-  vim.keymap.set(mode.normal, "r", api.tree.reload, opts)
-  vim.keymap.set(mode.normal, "C", api.tree.change_root_to_node, opts)
-  vim.keymap.set(mode.normal, "h", api.tree.toggle_hidden_filter, opts)
-  vim.keymap.set(mode.normal, "f", api.tree.toggle_enable_filters, opts)
-  vim.keymap.set(mode.normal, "f", api.tree.toggle_enable_filters, opts)
-  vim.keymap.set(mode.normal, "g", api.tree.toggle_gitignore_filter, opts)
-  vim.keymap.set(mode.normal, "<leader>v", api.node.open.vertical, opts)
-  vim.keymap.set(mode.normal, "<leader>h", api.node.open.horizontal, opts)
-  vim.keymap.set(mode.normal, "i", api.node.show_info_popup, opts)
-  vim.keymap.set(mode.normal, "o", api.node.open.edit, opts)
-  vim.keymap.set(mode.normal, "<CR>", api.node.open.edit, opts)
-  vim.keymap.set(mode.normal, ">", inc_width, opts)
-  vim.keymap.set(mode.normal, "<", dec_width, opts)
+  wk.add({
+    mode = "n",
+    buffer=bufnr,
+    {"c",         api.fs.create,                    desc="Create node (nvim-tree)" },
+    {"d",         api.fs.remove,                    desc="Remove node (nvim-tree)"},
+    {"m",         api.fs.rename_sub,                desc="Move node (nvim-tree)"},
+    {"y",         api.fs.copy.relative_path,        desc="Copy relative path of node (nvim-tree)"},
+    {"Y",         api.fs.copy.absolute_path,        desc="Copy absolute path of node (nvim-tree)"},
+    {"r",         api.tree.reload,                  desc="Reload tree (nvim-tree)"},
+    {"C",         api.tree.change_root_to_node,     desc="Change root node (nvim-tree)"},
+    {"f",         api.tree.toggle_enable_filters,   desc="Toggle filters (nvim-tree)"},
+    {"h",         api.tree.toggle_hidden_filters,   desc="Toggle hidden filters (nvim-tree)"},
+    {"g",         api.tree.toggle_gitignore_filter, desc="Toggle gitignore filters (nvim-tree)"},
+    {"<leader>v", api.node.open.vertical,           desc="Open node in vertical pane (nvim-tree)"},
+    {"<leader>h", api.node.open.horizontal,         desc="Open node in horizontal pane (nvim-tree)"},
+    {"i",         api.node.show_info_popup,         desc="Display node information (nvim-tree)"},
+    {"<CR>",      api.node.open.edit,               desc="Open node in new buffer (nvim-tree)"},
+    {">",         inc_width,                        desc="Increase tree pane width (nvim-tree)"},
+    {"<",         dec_width,                        desc="Decrease tree pane width (nvim-tree)"},
+  })
+  
 end
 
 require("nvim-tree").setup({

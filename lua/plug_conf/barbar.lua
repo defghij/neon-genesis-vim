@@ -1,4 +1,5 @@
 local Mode = require("consts").modes
+local wk   = require("which-key")
 
 vim.g.barbar_auto_setup = false
 
@@ -55,8 +56,10 @@ require("barbar").setup({
   semantic_letters = true,
 })
 
-vim.keymap.set(Mode.normal, "gt", ":BufferNext<CR>", { noremap = true })
-vim.keymap.set(Mode.normal, "gT", ":BufferPrevious<CR>", { noremap = true })
-vim.keymap.set(Mode.normal, "gq", ":BufferClose<CR>", { noremap = true })
-vim.keymap.set(Mode.normal, "<C-s>", ":BufferMoveNext<CR>", { noremap = true })
-vim.keymap.set(Mode.normal, "<C-a>", ":BufferMovePrevious<CR>", { noremap = true })
+wk.add({
+  {"gt",  ":BufferNext<CR>",         mode="n", desc="Next buffer (barbar)"          },
+  {"gT",  ":BufferPrevious<CR>",     mode="n", desc="Previous buffer (barbar)"      },
+  {"gq",  ":BufferClose<CR>",        mode="n", desc="Close current buffer (barbar)" },
+  {"gmr", ":BufferMoveNext<CR>",     mode="n", desc="Move buffer right (barbar)"    },
+  {"gml", ":BufferMovePrevious<CR>", mode="n", desc="Move buffer left (barbar)"     },
+})
