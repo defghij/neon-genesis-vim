@@ -5,13 +5,13 @@ function vimwiki.init()
   vim.g.vimwiki_list = {
       -- Academic Notes
     {
-      path = '~/vimwiki.all/academic',
+      path = '~/Documents/vimwiki.all/academic',
       syntax = 'markdown',
       ext = '.md',
     },
       -- Personal Notes
     {
-      path = '~/vimwiki.all/personal',
+      path = '~/Documents/vimwiki.all/personal',
       syntax = 'markdown',
       ext = '.md',
     },
