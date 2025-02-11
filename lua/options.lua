@@ -33,3 +33,11 @@ vim.opt.spell = true
 -- The .add file is a list of words you’ve added. For example, my .add file has tech words like “Kubernetes” which don’t typically appear in the default English dictionary.
 -- 
 -- The .spl file is a compiled binary “spellfile”. And it’s what is used to actually make suggestions and crawl the dictionary graph. Creating spellfiles is … rather involved. But, for most people, simply using zg to mark “good” words gets you 99% of the way there.
+
+
+
+vim.opt.runtimepath:append("~/.config/nvim/keymap")  -- Ensure the folder is searched
+vim.opt.keymap = "kana"  -- Load kana.vim
+vim.opt.iminsert = 0      -- Start with English input mode
+vim.opt.imsearch = 0      -- Default search in English
+
