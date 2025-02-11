@@ -32,9 +32,6 @@ local plugins = {
     "folke/which-key.nvim",
     lazy = false,
     config = get_setup("which-key"),
-    -- keys = { 
-    --   { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps (which-key)", },
-    -- },
   },
 
   -- Language server installations and LSP client configs and relevant keymaps
@@ -197,6 +194,14 @@ local plugins = {
     opts = {},
   },
 
+  -- Linguistic (Dictionary, Thesaurus, etc) Support
+  {
+    "Praczet/words-the-def.nvim",
+    -- depends on `dict`
+    config = function()
+      require("words-the-def").setup({})
+    end,
+  },
 
   -- Prioritized To-Do lists
   {
