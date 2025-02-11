@@ -25,6 +25,27 @@ vim.keymap.set(mode.normal, "-", ":lua update_buf_width(-2)<CR>",  { noremap = t
 vim.keymap.set(mode.normal, "+", ":lua update_buf_height(2)<CR>",  { noremap = true })
 vim.keymap.set(mode.normal, "_", ":lua update_buf_height(-2)<CR>", { noremap = true })
 
+
+-- Kana (ひらがな & かたかな) Key Map for Input Mode 
+function ToggleKanaKeymap()
+    local iminsert = vim.opt.iminsert:get()
+    if iminsert == 0 then
+        vim.opt.iminsert = 1  -- Enable Kana input
+        vim.opt.keymap = "kana"
+        print("Kana input enabled")
+    else
+        vim.opt.iminsert = 0  -- Switch to English
+        vim.opt.keymap = ""
+        print("English input enabled")
+    end
+end
+
+-- Map Ctrl+J to toggle between English and Romaji input
+vim.api.nvim_set_keymap("n", "<C-j>", ":lua ToggleKanaKeymap()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-j>", "<Esc>:lua ToggleKanaKeymap()<CR>", { noremap = true, silent = true })
+
+
+
 -- Terminal buffer-scoped maps
 function _G.set_terminal_keymaps()
   local opts = { noremap = true }
