@@ -25,6 +25,7 @@ vim.o.background = "dark"
 -- Spelling
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+
 -- ~/.config/nvim/
 --   |-- spell
 --   |    |-- en.utf-8.add

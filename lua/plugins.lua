@@ -34,6 +34,15 @@ local plugins = {
     config = get_setup("which-key"),
   },
 
+  
+  -- Extensive collection of Quality of Life features
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    config = get_setup("snacks"),
+  },
+
   -- Language server installations and LSP client configs and relevant keymaps
   {
     "neovim/nvim-lspconfig",
@@ -112,16 +121,6 @@ local plugins = {
     config = get_setup("barbar"),
   },
 
-  -- Filetree
-  {
-    "kyazdani42/nvim-tree.lua",
-    dependencies = {
-      "kyazdani42/nvim-web-devicons",
-      "romgrk/barbar.nvim",
-    },
-    config = get_setup("nvim_tree"),
-  },
-
   -- Colorscheme and Lualine
   {
     "folke/tokyonight.nvim",
@@ -133,21 +132,7 @@ local plugins = {
     config = get_setup("colorscheme"),
   },
 
-  -- Extends '%' behavior and matching text highlight
-  { "andymass/vim-matchup" },
-
-  -- Wrapper around `git` command
-  { "tpope/vim-fugitive" },
-
-  -- Interactive git diff and staging tool
-  {
-    "sindrets/diffview.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim"
-    },
-    config = get_setup("diffview"),
-  },
-
+  -- Auto-highlight other instances of work under the cursor
   {
     "RRethy/vim-illuminate",
     config = get_setup("vim_illuminate")
@@ -157,12 +142,6 @@ local plugins = {
   {
     "chentoast/marks.nvim",
     config = get_setup("marks"),
-  },
-
-  -- Case conversion
-  {
-    "johmsalas/text-case.nvim",
-    config = get_setup("text_case"),
   },
 
   -- Folding Support
@@ -184,16 +163,6 @@ local plugins = {
     end,
   },
 
-  {
-  'MeanderingProgrammer/render-markdown.nvim',
-    --dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
-
   -- Linguistic (Dictionary, Thesaurus, etc) Support
   {
     "Praczet/words-the-def.nvim",
@@ -209,12 +178,12 @@ local plugins = {
     config = get_setup("dooing"),
   },
 
-  -- Splash Page for Startup
-  {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
-    dependencies = { {'nvim-tree/nvim-web-devicons'}}
-  }
+  ---- Splash Page for Startup
+  --{
+    --'nvimdev/dashboard-nvim',
+    --event = 'VimEnter',
+    --dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  --}
 }
 
 local opts = {}

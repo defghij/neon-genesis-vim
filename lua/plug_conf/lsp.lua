@@ -61,14 +61,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local opts = { buffer = ev.buf }
     wk.add({
       {"g?", vim.lsp.buf.hover,            desc = "token documentation (hover) (lsp)"},
-      {"gd", vim.lsp.buf.declaration,      desc = "token declaration (buffer) (lsp)"},
-      {"gD", vim.lsp.buf.definition,       desc = "token definition (buffer) (lsp)"},
-      {"gI", vim.lsp.buf.implementation,   desc = "token implementation (buffer) (lsp)"},
       {"gC", vim.lsp.buf.code_action,      desc = "prompt for code actions (hover) (lsp)"},
       {"g}", vim.lsp.diagnostic.goto_next, desc = "move to next diagnostic (cursor) (lsp)"},
-      {"gR", vim.lsp.buf.references,       desc = "open reference to token (buffer) (lsp)"},
-
-      -- Cant get these to work anyway? May just need to remove which-key?
+    
+      -- See `snacks.lua`
+      --{"gd", vim.lsp.buf.declaration,      desc = "token declaration (buffer) (lsp)"},
+      --{"gD", vim.lsp.buf.definition,       desc = "token definition (buffer) (lsp)"},
+      --{"gI", vim.lsp.buf.implementation,   desc = "token implementation (buffer) (lsp)"},
+      --{"gR", vim.lsp.buf.references,       desc = "open reference to token (buffer) (lsp)"},
       -- {"g{", vim.lsp.diagnostic.goto_prev, desc = "move to next diagnostic (cursor)"},
       -- {"g?", vim.lsp.diagnostic.open_float, desc = "move to next diagnostic (cursor)"},
     })

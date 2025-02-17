@@ -32,11 +32,11 @@ function ToggleKanaKeymap()
     if iminsert == 0 then
         vim.opt.iminsert = 1  -- Enable Kana input
         vim.opt.keymap = "kana"
-        print("Kana input enabled")
+        --print("Kana input enabled")
     else
         vim.opt.iminsert = 0  -- Switch to English
         vim.opt.keymap = ""
-        print("English input enabled")
+        --print("English input enabled")
     end
 end
 

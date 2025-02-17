@@ -32,12 +32,13 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 
-vim.keymap.set(mode.normal, "<leader>ff", ":Telescope find_files hidden=true<CR>", { noremap = true })
-vim.keymap.set(mode.normal, "<leader>ffa", ":Telescope find_files hidden=true no_ignore=true hidden=true<CR>", { noremap = true })
-vim.keymap.set(mode.normal, "<leader>f", ":Telescope live_grep<CR>", { noremap = true })
-vim.keymap.set(mode.normal, "<leader>s", ":Telescope grep_string<CR>", { noremap = true })
-vim.keymap.set(mode.normal, "<leader>b", ":Telescope buffers<CR>", { noremap = true })
-vim.keymap.set(mode.normal, "<leader>h", ":Telescope help_tags<CR>", { noremap = true })
-vim.keymap.set(mode.normal, "gr",        ":Telescope lsp_references<CR>", { noremap = true })
-vim.keymap.set(mode.normal, "<leader>;", ":Telescope diagnostics<CR>", { noremap = true })
-vim.keymap.set(mode.normal, "<leader>g", ":Telescope git_status<CR>", { noremap = true })
+-- This functionality is provided by Snacks.
+--vim.keymap.set(mode.normal, "<leader>ff", ":Telescope find_files hidden=true<CR>", { noremap = true })
+--vim.keymap.set(mode.normal, "<leader>ffa", ":Telescope find_files hidden=true no_ignore=true hidden=true<CR>", { noremap = true })
+--vim.keymap.set(mode.normal, "<leader>f", ":Telescope live_grep<CR>", { noremap = true })
+--vim.keymap.set(mode.normal, "<leader>s", ":Telescope grep_string<CR>", { noremap = true })
+--vim.keymap.set(mode.normal, "<leader>b", ":Telescope buffers<CR>", { noremap = true })
+--vim.keymap.set(mode.normal, "<leader>h", ":Telescope help_tags<CR>", { noremap = true })
+--vim.keymap.set(mode.normal, "gr",        ":Telescope lsp_references<CR>", { noremap = true })
+--vim.keymap.set(mode.normal, "<leader>;", ":Telescope diagnostics<CR>", { noremap = true })
+--vim.keymap.set(mode.normal, "<leader>g", ":Telescope git_status<CR>", { noremap = true })
