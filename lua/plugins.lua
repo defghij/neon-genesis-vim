@@ -74,14 +74,6 @@ local plugins = {
     config = get_setup("cmp"),
   },
 
-  -- Commenting utility
-  { "preservim/nerdcommenter" },
-
-  -- Vim terminal friendly interface
-  {
-    "akinsho/toggleterm.nvim",
-    config = get_setup("toggleterm"),
-  },
 
   -- File/fuzzy finder and diagnostics
   {
@@ -109,6 +101,12 @@ local plugins = {
     build = ":TSInstall query",
   },
 
+  -- GitSigns
+  {
+    "lewis6991/gitsigns.nvim",
+    config = get_setup("gitsigns")
+  },
+
   -- Extended glyphs
   { "kyazdani42/nvim-web-devicons" },
 
@@ -119,6 +117,15 @@ local plugins = {
       "kyazdani42/nvim-web-devicons",
     },
     config = get_setup("barbar"),
+  },
+
+  -- Commenting utility
+  { "preservim/nerdcommenter" },
+
+  -- Vim terminal friendly interface
+  {
+    "akinsho/toggleterm.nvim",
+    config = get_setup("toggleterm"),
   },
 
   -- Colorscheme and Lualine
